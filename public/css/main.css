@@ -1,0 +1,151 @@
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.jumbotron{
+  font-size: 1em;
+}
+
+h4 {
+  margin-top: 25px;
+}
+.row {
+  margin-bottom: 20px;
+}
+.row .row {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+[class*="col-"] {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #eee;
+  background-color: rgba(214, 209, 240, 0.15);
+  border: 1px solid #ddd;
+  border: 1px solid rgba(211, 236, 222, 0.2);
+}
+
+div.col-md-6 {
+  margin-right: 3%;
+  width: 45%;
+  background-color: white;
+  border: 1px solid rgba(211, 236, 222, 0.2);
+}
+
+div.col-md-6 p {
+  background-color: black;
+  color: white;
+  float: left;
+  width: 30%;
+}
+
+hr {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.jumbotron p {
+  font-size: 16px;
+  font-family: arial;
+}
+
+.staff-info td.header{
+	width: 20%;
+}
+.staff-info td.value{
+	width: 25%;
+}
+
+.bs-example:after {
+	content: "staff information";
+}
+
+div.bs-timesheet {
+	width: 95%;
+	margin: auto;
+}
+div.bs-timesheet:after {
+	content: "Time Table";
+}
+
+table.timesheet{
+	font-family: Meiryo;
+	margin-top: 3px;
+}
+
+table.timesheet td, th{
+	/* width: 3%; */
+}
+
+table.timesheet th.time-td{
+	width: 75px;
+	text-align: center;
+}
+
+table.timesheet tbody td{
+	font-size: 12px;
+	text-align: left;
+}
+
+td.saturday{
+	color: blue;
+}
+td.sunday{
+	color: red;
+}
+td.holiday{
+	color: green
+}
+
+th.narrow{
+	width: 55px;
+}
+th.normal{
+	width: 85px;
+}
+th.large{
+	width: 100px;
+}
+
+span.ui-spinner, #spinner{
+	font-size: 1em;
+	width: 70px;
+	/* display: none; */
+}
+
+.footable.breakpoint > tbody > tr:hover:not(.footable-row-detail) td:first-child{
+  cursor: pointer;
+}
+
+.footable.breakpoint > tbody > tr > td:hover > span.footable-toggle:before{
+	color: green;
+}
+
+.form_datetime{
+	float: left;
+	width: 200px;
+}
+
+td.time-input{
+	padding: 0px;
+}
+td.time-input div.btn-group{
+	position: absolute;
+	top: 0px;
+}
+
+div.ts-submit{
+	width: 95%; 
+	margin: 10px auto 10px auto;
+}
+div.ts-submit button{
+	/* float: right; */
+}
+
+div.svg-image{
+	margin: 100px;
+}
+
+button.reloadbtn{
+	float: right;
+}
