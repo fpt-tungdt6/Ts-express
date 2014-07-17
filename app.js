@@ -5,7 +5,7 @@
 
 var express = require('express')
   , routes = require('./routes')
-  , user = require('./routes/user')
+  , d3test = require('./routes/d3test')
   , http = require('http')
   , path = require('path');
 
@@ -28,7 +28,8 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+//app.get('/users', user.list);
+app.get('/d3test', d3test.index);
 
 var server = http.createServer(app);
 
@@ -59,10 +60,13 @@ io.on('connection', function (socket) {
  * getting-started.js
  */
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/test');
+var db = mongoose.createConnection('mongodb://admin:12345@localhost:27017/admin');
+//mongodb://user:pass@localhost:port/database
+
+//mongoose.useDb("test");
+//var db = mongoose.connection;
 
 
-/*var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback () {
   console.log("mongo connected...");
@@ -80,7 +84,7 @@ db.once('open', function callback () {
     console.log(greeting);
   };
   
-  var Kitten = mongoose.model('Kitten', kittySchema);
+  var Kitten = db2.model('Kitten', kittySchema);
   
   var silence = new Kitten({ name: 'Silence' });
   console.log(silence.name); // 'Silence'
@@ -92,8 +96,12 @@ db.once('open', function callback () {
   fluffy.save(function (err, fluffy) {
 	if (err) return console.error(err);
 	fluffy.speak();
+	console.log("saved ??");
   });
-});*/
+  
+});
+
+//db2 switching
 
 function saveData(data){
 	

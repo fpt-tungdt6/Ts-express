@@ -29,24 +29,24 @@
     
     <style type="text/css">
     .chart rect {
-	  fill: steelblue;
-	}
-	
-	.chart text {
-	  fill: #1A29DA;
-	  /* font: 10px sans-serif; */
-	  text-anchor: middle;
-	}
-	.axis text {
-	  font: 10px sans-serif;
-	}
-	
-	.axis path,
-	.axis line {
-	  fill: none;
-	  stroke: #000;
-	  shape-rendering: crispEdges;
-	}
+      fill: steelblue;
+    }
+    
+    .chart text {
+      fill: #1A29DA;
+      /* font: 10px sans-serif; */
+      text-anchor: middle;
+    }
+    .axis text {
+      font: 10px sans-serif;
+    }
+    
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
     </style>
   </head>
   <body>
@@ -70,7 +70,9 @@
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="js/nv.d3.js"></script>
     
-	<div class="navbar navbar-inverse" role="navigation">
+    <script src="js/d3test.js"></script>
+    
+    <div class="navbar" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -83,8 +85,8 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/d3test">D3Test</a></li>
+            <li><a href="/">Home</a></li>
+            <li class="active"><a href="#">D3 Test</a></li>
             <li><a href="#contact">Contact</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
@@ -113,103 +115,19 @@
       </div>
     </div>
     
-    <div class="jumbotron">
-      <div class="container">
-      	<div class="alert alert-success">
-	       <strong>Oh snap!</strong> Change a few things up and try submitting again.
-	    </div>
-        <h1>Hello, Timesheet!</h1>
-        <!-- <p><a class="btn btn-primary btn-lg" role="button">Learn more »</a></p> -->
-        <div class="bs-example">
-	        <table class="table staff-info">
-	          <tr>
-	          	<td class="header">Name</td>
-	          	<td class="value">Dang Thanh Tung</td>
-	          	<td class="header">Working Site</td>
-	          	<td class="value">Fujixerox</td>
-	          </tr>
-	          <tr>
-	          	<td class="header">Code</td>
-	          	<td class="value"></td>
-	          	<td class="header">Project</td>
-	          	<td class="value"></td>
-	          </tr>
-	          <tr>
-	          	<td class="header">Dept</td>
-	          	<td class="value"></td>
-	          	<td class="header">Timesheet of month</td>
-	          	<td class="value"></td>
-	          </tr>
-	          <tr>
-	          	<td class="header">Start from</td>
-	          	<td class="">
-	          	  <div class="input-group date form_datetime" data-date="" data-date-format="yyyy-mm" data-link-format="yyyy-mm" data-link-field="dtp_input1">
-                    <input class="form-control" size="10" type="text" value="">
-					<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span>
-                  </div>
-	          	  <input type="hidden" id="dtp_input1" value="" />
-	          	</td>
-	          	<td class="header">Standard Working Hour</td>
-	          	<td class="value"></td>
-	          </tr>
-	          <tr>
-	          	<td class="header">Contract Type</td>
-	          	<td class="value"></td>
-	          	<td class="header">Lunch time</td>
-	          	<td class="value"></td>
-	          </tr>
-	        </table>
-	    </div>
-	    
+    <div class="svg-image">
+        <p>Hello!</p>
         
-      </div>
-      
+        <svg class="chart"></svg>
+        <br>
+        
+        <svg class="nvd3"></svg>
+        
+        <svg class="nvd3-pie"></svg>
+        
     </div>
     
-    <div class="ts-submit">
-      <button type="button" class="reloadbtn btn btn-default" title="Discard changes">Reload</button>
-      <button type="button" class="okbtn btn btn-success">Save</button>
-      <button type="button" class="submitbtn btn btn-primary">Submit</button>
-    </div>
-    <div class="bs-timesheet bs-example">
-    <!-- TAB  -->
-	    <ul class="nav nav-tabs" id="myTab">
-		  <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-		  <li><a href="#profile" data-toggle="tab">Profile</a></li>
-		  <li><a href="#messages" data-toggle="tab">Messages</a></li>
-		  <li><a href="#settings" data-toggle="tab">Settings</a></li>
-		</ul>
-		
-		<div class="tab-content">
-		  <div class="tab-pane active" id="home">
-		  <!-- Timesheet Table -->
-<!-- 			  <table id="ts-table" class="timesheet table table-striped">
-		      	
-		      </table> -->
-		      <table id="ts-table" class="">
-		      
-			  </table>
-		  </div>
-		  <div class="tab-pane" id="profile">...</div>
-		  <div class="tab-pane" id="messages">...</div>
-		  <div class="tab-pane" id="settings">...</div>
-		</div>
-	
-	<script>
-	  $(function () {
-	    $('#myTab a:first').tab('show');
-	  })
-	</script>
-	<script src="js/ts-table.jquery.js"></script>
-	<script src="js/main.js"></script>
-	
-		<!-- <input id="spinner" name="spinner" value="08:30 PM"> -->
-    </div>
-    <div class="ts-submit" style="">
-      <button type="button" class="reloadbtn btn btn-default" title="Discard changes">Reload</button>
-      <button type="button" class="okbtn btn btn-success">Save</button>
-      <button type="button" class="submitbtn btn btn-primary">Submit</button>
-    </div>
+    
     
   </body>
 </html>
