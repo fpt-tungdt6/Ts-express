@@ -6,6 +6,7 @@
 var express = require('express')
   , routes = require('./routes')
   , d3test = require('./routes/d3test')
+  , tsdat = require('./routes/timesheetdat')
   , http = require('http')
   , path = require('path');
 
@@ -28,20 +29,20 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-//app.get('/users', user.list);
 app.get('/d3test', d3test.index);
 
-var server = http.createServer(app);
+//ajax call
+app.post('/postdata', tsdat.saveTimesheetData);
 
-//iosocket
-var io = require('socket.io')(server);
+var server = http.createServer(app);
 
 server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
 
-
+//iosocket
+var io = require('socket.io')(server);
 io.on('connection', function (socket) {
   socket.emit('news', { hello: 'world' });
   socket.on('my other event', function (data) {
@@ -61,47 +62,25 @@ io.on('connection', function (socket) {
  */
 var mongoose = require('mongoose');
 var db = mongoose.createConnection('mongodb://admin:12345@localhost:27017/admin');
+//Make our db accessible to our router
 //mongodb://user:pass@localhost:port/database
 
 //mongoose.useDb("test");
 //var db = mongoose.connection;
 
+var db2 = db.useDb("test");
+app.use(function(req,res,next){
+    req.db = db2;
+    next();
+});
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback () {
   console.log("mongo connected...");
   
-  // yay!
-  var kittySchema = mongoose.Schema({
-    name: String
-  });
-  
-  //NOTE: methods must be added to the schema before compiling it with mongoose.model()
-  kittySchema.methods.speak = function () {
-    var greeting = this.name
-      ? "Meow name is " + this.name
-      : "I don't have a name";
-    console.log(greeting);
-  };
-  
-  var Kitten = db2.model('Kitten', kittySchema);
-  
-  var silence = new Kitten({ name: 'Silence' });
-  console.log(silence.name); // 'Silence'
-  
-  //var Kitten = mongoose.model('Kitten', kittySchema);
-  var fluffy = new Kitten({ name: 'fluffy' });
-  fluffy.speak(); // "Meow name is fluffy"
-  
-  fluffy.save(function (err, fluffy) {
-	if (err) return console.error(err);
-	fluffy.speak();
-	console.log("saved ??");
-  });
   
 });
 
-//db2 switching
 
 function saveData(data){
 	

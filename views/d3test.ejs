@@ -4,13 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title><%- title%></title>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="bootstrap/css/docs.min.css" rel="stylesheet">
     <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet">
-    <link href="bootstrap/css/bootstrap-datetimepicker.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,8 +20,6 @@
     
     <!-- <link rel="stylesheet" href="jquery-ui/themes/base/jquery.ui.all.css"> -->
     
-    <link href="css/footable.core.css" rel="stylesheet">
-    <link href="css/footable.standalone.css" rel="stylesheet">
     <!-- <link href="css/footable.editable-1.0.css" rel="stylesheet"> -->
     <link href="css/main.css" rel="stylesheet">
     <link href="css/nv.d3.css" rel="stylesheet">
@@ -53,17 +50,9 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="jquery-ui/jquery-1.11.0.min.js"></script>
-    <script src="jquery-ui/ui/jquery-ui.js"></script>
-    <!-- <script src="jquery-ui/external/jquery.mousewheel.js"></script>
-    <script src="jquery-ui/external/globalize.js"></script>
-    <script src="jquery-ui/external/globalize.culture.de-DE.js"></script> -->
     
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="bootstrap/js/bootstrap-datetimepicker.min.js"></script>
-    
-    <script src="js/footable.js"></script>
-    <!-- <script src="js/footable.editable.js"></script> -->
     
     <script src="js/socket.io-1.0.4.js"></script>
     
@@ -116,12 +105,10 @@
     </div>
     
     <div class="svg-image">
-        <p>Hello!</p>
+    
+        <svg class="nvd3"></svg>
         
         <svg class="chart"></svg>
-        <br>
-        
-        <svg class="nvd3"></svg>
         
         <svg class="nvd3-pie"></svg>
         
