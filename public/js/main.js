@@ -139,9 +139,41 @@ TimeSheetMonth.collectCurrentMonthData = function(){
 }
 
 TimeSheetMonth.prototype.sendData = function(){
+	
+	//ajax request
+	var path = "/data/postOperateInfo";
+	var data = {
+		"staffid": this.ownerId,
+		"month": this.month,
+		"data": this.data
+	};
+	
+	$.ajax({
+	    type: "POST",
+	    contentType: "charset=utf-8",
+	    url: path,
+	    data: JSON.stringify(data),
+	    success: function (data) {
+	    	
+	    },
+	    error: function (errMsg) {
+	    	console.log(errMsg);
+	    }
+	});
+	
+	//io-socket send
 	socket.emit("timesheetdata", {
 		staffid: this.ownerId,
 		month: this.month,
 		data: this.data
 	});
+};
+
+var Notification = function(){
+	
+}
+
+Notification.saveSuccess = function(mess){
+	if (mess) 
+	$("div.notification").show("fast").delay(1000).hide("slow");
 }

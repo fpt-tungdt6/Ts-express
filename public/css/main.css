@@ -150,3 +150,7 @@ div.svg-image{
 button.reloadbtn{
 	float: right;
 }
+
+div.notification{
+	display: none;
+}

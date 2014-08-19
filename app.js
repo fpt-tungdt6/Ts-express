@@ -6,7 +6,7 @@
 var express = require('express')
   , routes = require('./routes')
   , d3test = require('./routes/d3test')
-  , tsdat = require('./routes/timesheetdat')
+  , tsfunc = require('./routes/timesheet_functions')
   , http = require('http')
   , path = require('path');
 
@@ -32,7 +32,7 @@ app.get('/', routes.index);
 app.get('/d3test', d3test.index);
 
 //ajax call
-app.post('/postdata', tsdat.saveTimesheetData);
+app.post('/postdata', tsfunc.saveTimesheetData);
 
 var server = http.createServer(app);
 
@@ -63,10 +63,6 @@ io.on('connection', function (socket) {
 var mongoose = require('mongoose');
 var db = mongoose.createConnection('mongodb://admin:12345@localhost:27017/admin');
 //Make our db accessible to our router
-//mongodb://user:pass@localhost:port/database
-
-//mongoose.useDb("test");
-//var db = mongoose.connection;
 
 var db2 = db.useDb("test");
 app.use(function(req,res,next){
@@ -74,11 +70,10 @@ app.use(function(req,res,next){
     next();
 });
 
+//db connect state inform
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback () {
   console.log("mongo connected...");
-  
-  
 });
 
 

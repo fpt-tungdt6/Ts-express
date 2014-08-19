@@ -146,7 +146,7 @@
 		    ],
 		    
 			"weekday": ["日", "月", "火","水","木","金","土"],
-			"holiday": [29]
+			"holiday": [21, 28, 29, 30, 31]
 		};
  
     $.fn.timesheetTable = function( options ) {
