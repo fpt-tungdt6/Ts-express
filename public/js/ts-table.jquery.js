@@ -302,4 +302,4 @@
         return str.replace( /\s+$/, "" );
     };
  
-}( jQuery ));
+})( jQuery );

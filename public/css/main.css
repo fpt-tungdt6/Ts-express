@@ -154,3 +154,12 @@ button.reloadbtn{
 div.notification{
 	display: none;
 }
+
+td.footable-row-detail-cell{
+	font-family: meiryo,arial;
+	font-size: .9em;
+}
+
+#ts-table{
+	margin-top: 5px;
+}
