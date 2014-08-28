@@ -28,7 +28,8 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
+app.get('/home', routes.index);
+app.get('/adminlte', routes.adminlte);
 app.get('/d3test', d3test.index);
 
 //ajax call

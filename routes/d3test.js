@@ -4,5 +4,9 @@
  */
 
 exports.index = function(req, res){
-  res.render('d3test', { title: 'D3JS Chart' });
+  res.render('d3test', { 
+	  title: 'D3JS Chart',
+	  menus: ["home", "d3test", "adminlte"],
+	  active: 1
+  });
 };
