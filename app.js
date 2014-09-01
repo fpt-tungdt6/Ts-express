@@ -67,7 +67,7 @@ var db = mongoose.createConnection('mongodb://admin:12345@localhost:27017/admin'
 
 var db2 = db.useDb("test");
 app.use(function(req,res,next){
-    req.db = db2;
+    req.db = db2; // truyền instance db vào request trước khi xử lý tiếp
     next();
 });
 
